@@ -11,16 +11,17 @@ const Todo = props => {
     if(active){
     return(
         <div>
-            <div style={ important ? importantColor : null}>{text}</div>
+            <div style={ important ? importantColor : null}>{text} - to {date}</div>
             <button onClick={() => props.changeStatus(id)}>done</button>
             <button onClick={() => props.remove(id)}>x</button>
         </div>
     )}
     else{
+        const finish = new Date(finishDate).toLocaleString()
         return(
             <div>
                 <div style={important ? importantColor : null}>
-                {text} 
+                {text} - done {finish}
                 <button onClick={() => props.remove(id)}>x</button>
                 </div>
             </div>
