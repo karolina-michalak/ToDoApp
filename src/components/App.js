@@ -13,28 +13,34 @@ class App extends React.Component {
         text: 'feed the cat',
         important: false,
         active: true,
-        finishDate: null
+        finishDate: null,
+        date: '2019-12-31'
       },
       {
         id: 1,
         text: 'go shopping',
-        important: false,
+        important: true,
         active: false,
-        finishDate: null
+        finishDate: null,
+        date: '2020-02-02'
       },
       {
         id: 2,
         text: 'take a walk',        
         important: true,
         active: true,
-        finishDate: null
+        finishDate: null,
+        date: '2020-03-02'
+
       },
       {
         id: 3,
         text: 'buy new house',
         important: false,
         active: true,
-        finishDate: null
+        finishDate: null,
+        date: '2020-01-11'
+
       },
     ]
   }
@@ -44,19 +50,18 @@ class App extends React.Component {
       id: this.counter,
       text,
       date,
-      important: false, 
+      important, 
       active: true,
       finishDate: null
     }
 
     this.counter++
     this.setState(prevState => ({
-      tasks: [...prevState.tasks, task]
+      tasks: [task, ...prevState.tasks]
     }))
   }
 
   removeTask = id => {
-    console.log('aaa')
     let tasks = [...this.state.tasks]
     tasks = tasks.filter(task => task.id !== id)
     this.setState({
@@ -64,12 +69,25 @@ class App extends React.Component {
     })
   }
 
+  handleStatusChange = id => {
+    const tasks = [...this.state.tasks]
+    tasks.forEach(task =>{
+      if(task.id === id){
+        task.active = false
+      }
+    })
+    this.setState({
+      tasks
+    })
+  }
+
+
   render(){
     return (
     <div>
       <h1>To Do App</h1>
-      <AddTodo add={this.addTask} />
-      <TodoList tasks={this.state.tasks} remove={this.removeTask}/>
+      <AddTodo add={this.addTask}/>
+      <TodoList tasks={this.state.tasks} remove={this.removeTask} changeStatus={this.handleStatusChange} />
     </div>
     )
   }

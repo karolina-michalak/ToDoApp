@@ -31,6 +31,7 @@ class AddTodo extends React.Component {
         const {text, checked, date} = this.state
         if(text.length > 2){
             const add = this.props.add(text, checked, date)
+
             if(add){
                 this.setState({
                     text: "",
@@ -53,7 +54,7 @@ class AddTodo extends React.Component {
             <div>
                 <div>
                     <input type="text" placeholder="to do" value={this.state.text} onChange={this.handleInputChange}/>
-                    <label><input type="checkbox" id="important" checked={this.state.checked} onChange={this.handleCheckboxChange}/> important</label>
+                    <label htmlFor="important"><input type="checkbox" checked={this.state.checked} onChange={this.handleCheckboxChange} id="important"/> important</label>
                 </div>
                     <label>deadline date: <input type="date" onChange={this.handleDate} min={this.minDate} max={maxDate}/></label>
                     <button onClick={this.handleClick}>add</button>

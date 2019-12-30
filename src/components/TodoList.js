@@ -6,7 +6,7 @@ const TodoList = props => {
     const active = props.tasks.filter(task => task.active);
     const done = props.tasks.filter(task => !task.active)
 
-    const activeTasks = active.map(task => <Todo key={task.id} task={task} remove={props.remove}/>)
+    const activeTasks = active.map(task => <Todo key={task.id} task={task} remove={props.remove} changeStatus={props.changeStatus}/>)
     const doneTasks = done.map(task => <Todo key={task.id} task={task} remove={props.remove}/>)
 
     return(
