@@ -11,13 +11,15 @@ const Todo = props => {
     if(active){
     return(
         <div>
-            <div style={important ? importantColor : null}>{props.task.text}</div><button>done</button><button>x</button>
+            <div style={important ? importantColor : null}>{props.task.text}</div>
+            <button>done</button>
+            <button onClick={() => props.remove(id)}>x</button>
         </div>
     )}
     else{
         return(
             <div>
-            {props.task.text} <button>x</button>
+            {props.task.text} <button onClick={() => props.remove(id)}>x</button>
         </div>
         )
     }

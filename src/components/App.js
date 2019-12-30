@@ -39,12 +39,37 @@ class App extends React.Component {
     ]
   }
 
+  addTask = (text, date, important) => {
+    const task = {
+      id: this.counter,
+      text,
+      date,
+      important: false, 
+      active: true,
+      finishDate: null
+    }
+
+    this.counter++
+    this.setState(prevState => ({
+      tasks: [...prevState.tasks, task]
+    }))
+  }
+
+  removeTask = id => {
+    console.log('aaa')
+    let tasks = [...this.state.tasks]
+    tasks = tasks.filter(task => task.id !== id)
+    this.setState({
+      tasks
+    })
+  }
+
   render(){
     return (
     <div>
       <h1>To Do App</h1>
-      <AddTodo/>
-      <TodoList tasks={this.state.tasks}/>
+      <AddTodo add={this.addTask} />
+      <TodoList tasks={this.state.tasks} remove={this.removeTask}/>
     </div>
     )
   }

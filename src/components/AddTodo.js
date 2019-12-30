@@ -21,19 +21,42 @@ class AddTodo extends React.Component {
         })
     }
 
+    handleDate = e => {
+        this.setState({
+            date: e.target.value
+        })
+    }
+
+    handleClick = () => {
+        const {text, checked, date} = this.state
+        if(text.length > 2){
+            const add = this.props.add(text, checked, date)
+            if(add){
+                this.setState({
+                    text: "",
+                    checked: false,
+                    date: this.minDate
+                })
+            }
+        }else{
+            alert('too short')
+        }
+    }
+
 
 
     render(){
         let maxDate = this.minDate.slice(0, 4) * 1 + 1;
         maxDate = maxDate + '-12-31'
+
         return(
             <div>
                 <div>
                     <input type="text" placeholder="to do" value={this.state.text} onChange={this.handleInputChange}/>
-                    <label><input type="checkbox" checked={this.state.checked} onChange={this.handleCheckboxChange}/> important</label>
+                    <label><input type="checkbox" id="important" checked={this.state.checked} onChange={this.handleCheckboxChange}/> important</label>
                 </div>
-                    <label>deadline date: <input type="date" min={this.minDate} max={maxDate}/></label>
-                    <button onClick={this.addTask}>add</button>
+                    <label>deadline date: <input type="date" onChange={this.handleDate} min={this.minDate} max={maxDate}/></label>
+                    <button onClick={this.handleClick}>add</button>
             </div>
         )
     }
