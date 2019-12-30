@@ -19,7 +19,7 @@ class App extends React.Component {
         id: 1,
         text: 'go shopping',
         important: false,
-        active: true,
+        active: false,
         finishDate: null
       },
       {
