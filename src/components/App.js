@@ -1,4 +1,7 @@
 import React from 'react';
+import AddTodo from './AddTodo';
+import TodoList from './TodoList';
+
 
 class App extends React.Component {
   counter = 4
@@ -39,8 +42,8 @@ class App extends React.Component {
     return (
     <div>
       <h1>To Do App</h1>
-      <AddTask/>
-      <TaskList/>
+      <AddTodo/>
+      <TodoList/>
     </div>
     )
   }
