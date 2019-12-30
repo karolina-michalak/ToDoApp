@@ -5,7 +5,9 @@ const Todo = props => {
 
 
     return(
-        null
+        <div>
+            {props.task.text}
+        </div>
     )
 }
 export default Todo

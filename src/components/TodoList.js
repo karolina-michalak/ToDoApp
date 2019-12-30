@@ -1,14 +1,13 @@
 import React from 'react';
+import Todo from './Todo.js'
 
 const TodoList = props => {
 
     const active = props.tasks.filter(task => task.active);
     const done = props.tasks.filter(task => !task.active)
 
-    const activeTasks = active.map(task => <Task key={task.id} task={task}/>)
-    const doneTasks = done.map(task => <Task key={task.id} task={task}/>)
-
-
+    const activeTasks = active.map(task => <Todo key={task.id} task={task}/>)
+    const doneTasks = done.map(task => <Todo key={task.id} task={task}/>)
 
     return(
         <>
