@@ -54,9 +54,9 @@ class AddTodo extends React.Component {
             <div>
                 <div>
                     <input type="text" placeholder="to do" value={this.state.text} onChange={this.handleInputChange}/>
-                    <label htmlFor="important"><input type="checkbox" checked={this.state.checked} onChange={this.handleCheckboxChange} id="important"/> important</label>
+                    <input type="checkbox" checked={this.state.checked} onChange={this.handleCheckboxChange} id="important"/> <label htmlFor="important">important</label>
                 </div>
-                    <label>deadline date: <input type="date" onChange={this.handleDate} min={this.minDate} max={maxDate}/></label>
+                    <label>deadline date: <input type="date" value={this.state.date} onChange={this.handleDate} min={this.minDate} max={maxDate}/></label>
                     <button onClick={this.handleClick}>add</button>
             </div>
         )

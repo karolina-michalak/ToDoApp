@@ -11,7 +11,7 @@ const Todo = props => {
     if(active){
     return(
         <div>
-            <div style={ important ? importantColor : null}>{text} - to {date}</div>
+            <div style={ important ? importantColor : null}>{text} - to <em> {date} </em></div>
             <button onClick={() => props.changeStatus(id)}>done</button>
             <button onClick={() => props.remove(id)}>x</button>
         </div>
