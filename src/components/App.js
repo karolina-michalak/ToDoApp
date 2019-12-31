@@ -45,7 +45,7 @@ class App extends React.Component {
     ]
   }
 
-  addTask = (text, date, important) => {
+  addTask = (text, important, date) => {
     const task = {
       id: this.counter,
       text,
