@@ -85,7 +85,7 @@ class App extends React.Component {
 
   render(){
     return (
-    <div className={styles.App}>
+    <div className='App'>
       <h1>To Do App</h1>
       <AddTodo add={this.addTask}/>
       <TodoList tasks={this.state.tasks} remove={this.removeTask} changeStatus={this.handleStatusChange} />
