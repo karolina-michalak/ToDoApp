@@ -1,7 +1,7 @@
 import React from 'react';
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
-
+import styles from '../App.css'
 
 class App extends React.Component {
   counter = 4
@@ -85,7 +85,7 @@ class App extends React.Component {
 
   render(){
     return (
-    <div>
+    <div className={styles.App}>
       <h1>To Do App</h1>
       <AddTodo add={this.addTask}/>
       <TodoList tasks={this.state.tasks} remove={this.removeTask} changeStatus={this.handleStatusChange} />
