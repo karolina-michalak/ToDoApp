@@ -35,7 +35,7 @@ const TodoList = props => {
     return(
         <>
         <div>
-            <h2>To do: {activeTasks.length > 0 ? activeTasks.length : null}:</h2>
+            <h2>To do ({activeTasks.length > 0 ? activeTasks.length : null}):</h2>
             {activeTasks.length > 0 ? activeTasks : 'nothing to do'}
         </div>
         <hr/>
